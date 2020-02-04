@@ -1,0 +1,6 @@
+---
+Title:"My Rmd document"
+author:"Sreeja Vishaly"
+date:"27 jan 2020"
+output:html_document
+---

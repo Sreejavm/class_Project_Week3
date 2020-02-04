@@ -1,0 +1,54 @@
+---
+Title:"My Rmd document"
+author:"Sreeja Vishaly"
+date:"`r format(Sys.time(),'%d %B, %Y')`"
+output:bookdown::html_document-2
+---
+
+```{r, starwars-plot, fig.cap= "A ggplot of starwars data"}
+
+library(tidyverse)
+
+starwars%>%
+ filter(species=="Human") %>%
+ggplot() +  
+ aes(x=height,
+     y= mass)+
+  geom_point()
+```
+We can see in Figure \@ref(fig:starwars-plot)...
+
+
+```{r, starwars-tbl}
+library(tidyverse)
+starwars%>%
+ filter(species=="Human") %>%
+ select(name,
+        height,
+        mass,
+        homeworld) %>%
+knitr::kable(caption = "A knitr kable table of starwars data")
+```
+
+We can see in Table \@ref(tab::starwars-tbl)...
+
+
+```{r, my-fig, fig.cap="My non-code figure"}
+
+knitr::include_graphics("figures/my-image-file.png")
+
+```
+
+We can see in Figure \@ref(fig:my-fig)...
+
+
+---
+
+Title:"My great report"
+bibiliography:"Sreeja Vishaly"
+date:"`r format(Sys.time(),'%d %B, %Y')`"
+output:bookdown::html_document-2
+
+---
+
+Blah blah [see [@barba2019engineers, pp. 33-35; also @stodden2014implementing, ch. 1].
